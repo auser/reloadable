@@ -1,6 +1,24 @@
 = reloadable
 
-Description goes here.
+Reloading files is useful... sometimes. This makes it easy to reload files you define.
+
+How?
+
+class PunkyBrewster
+  include Reloadable
+  
+  # Require her friends and register that we might be reloading them later
+  require_reloadable_files "edward.rb"
+  require_reloadable_files "frank.rb"
+  
+  def say_hello
+    reload_files! if should_reload? # should_reload? is your own method
+    puts "Hello"
+  end
+end
+
+That's it!
+
 
 == Copyright
 
